@@ -11732,3 +11732,221 @@ html {
     left: -2vw;
   }
 }
+/* ============================================
+   BLACK BACKGROUND / GOLD CONTENT THEME OVERRIDE
+   ============================================ */
+
+html, body {
+  background-color: #000000 !important;
+}
+
+/* Page surfaces: nav, footer, light sections, cards -> black */
+.bg-white,
+.bg-light,
+.navbar,
+footer,
+.card {
+  background-color: #000000 !important;
+  color: #ffc107;
+}
+
+/* Cards get a subtle gold border since black-on-black has no edges */
+.card {
+  border: 1px solid #3a3106 !important;
+}
+
+/* Inner light chips (skills, experience blocks) stay dark with a gold outline instead of white */
+.bg-light.rounded-4,
+.bg-light.p-4,
+div.bg-light {
+  background-color: #141400 !important;
+  border: 1px solid #3a3106;
+  color: #ffc107 !important;
+}
+
+/* Body copy, headings, muted text -> gold/gold-tinted */
+body,
+p, span, div, li, label,
+h1, h2, h3, h4, h5, h6,
+.text-muted,
+.fw-light,
+.small {
+  color: #ffc107 !important;
+}
+
+/* Nav links */
+.navbar-nav .nav-link {
+  color: #ffc107 !important;
+}
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+  color: #fff59d !important;
+}
+.navbar-toggler-icon {
+  filter: invert(1);
+}
+
+/* Keep the gradient/badge/button text readable: white stays on solid gradient chips */
+.badge, .feature {
+  color: #000000 !important;
+}
+.badge *, .feature * {
+  color: #000000 !important;
+}
+
+/* Buttons: solid primary (black) becomes gold-on-black outline so it doesn't disappear on a black page */
+.btn-primary {
+  --bs-btn-bg: #ffc107;
+  --bs-btn-border-color: #ffc107;
+  --bs-btn-color: #000000 !important;
+  --bs-btn-hover-bg: #ffcd39;
+  --bs-btn-hover-border-color: #ffc720;
+  --bs-btn-hover-color: #000000 !important;
+  --bs-btn-active-bg: #ffcd39;
+  --bs-btn-active-border-color: #ffc720;
+}
+.btn-outline-dark {
+  --bs-btn-color: #ffc107 !important;
+  --bs-btn-border-color: #ffc107;
+  --bs-btn-hover-bg: #ffc107;
+  --bs-btn-hover-color: #000000 !important;
+  --bs-btn-hover-border-color: #ffc107;
+}
+.btn-outline-light {
+  --bs-btn-color: #ffc107 !important;
+  --bs-btn-border-color: #ffc107;
+  --bs-btn-hover-bg: #ffc107;
+  --bs-btn-hover-color: #000000 !important;
+}
+
+/* Form fields on the contact page need to stay legible on black */
+.form-control {
+  background-color: #141400 !important;
+  color: #ffc107 !important;
+  border: 1px solid #3a3106 !important;
+}
+.form-control::placeholder {
+  color: #7a6a1a !important;
+}
+.form-floating > label {
+  color: #7a6a1a !important;
+}
+
+/* Links */
+a {
+  color: #ffc107;
+}
+a:hover {
+  color: #fff59d;
+}
+
+/* Text-gradient headings: on an all-black page, use white->gold instead of black->gold so they're visible */
+.text-gradient {
+  background: -webkit-linear-gradient(315deg, #ffffff 0%, #ffc107 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ============================================
+   MOBILE RESPONSIVENESS FIXES
+   ============================================ */
+
+/* Prevent horizontal scroll/overflow on small screens */
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+/* Profile photo: cap size on phones so it never overflows or crowds the hero text */
+@media (max-width: 575.98px) {
+  .profile {
+    height: 70vw;
+    width: 70vw;
+    max-height: 20rem;
+    max-width: 20rem;
+    margin-top: 2rem;
+  }
+  .profile .profile-img {
+    height: 72vw;
+    max-height: 21rem;
+  }
+  header.py-5 {
+    padding-top: 2rem !important;
+    padding-bottom: 1rem !important;
+  }
+  .display-3 {
+    font-size: 2.1rem !important;
+  }
+  .display-4 {
+    font-size: 1.8rem !important;
+  }
+  .display-5 {
+    font-size: 1.6rem !important;
+  }
+}
+
+/* Tighter spacing and full-width buttons on phones */
+@media (max-width: 575.98px) {
+  .container.px-5 {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+  .btn-lg {
+    width: 100%;
+  }
+  .d-sm-flex.d-grid > .btn {
+    width: 100%;
+  }
+  .card-body.p-5 {
+    padding: 1.5rem !important;
+  }
+  .row.row-cols-md-3 > .col,
+  .row.row-cols-md-3 > .col.lg-12 {
+    margin-bottom: 1rem !important;
+  }
+}
+
+/* Experience/education cards: stack cleanly and don't let text overflow on narrow phones */
+@media (max-width: 575.98px) {
+  .card .row.align-items-center.gx-5 {
+    row-gap: 1rem;
+  }
+  .small.text-muted,
+  .small.fw-bolder {
+    word-break: break-word;
+  }
+}
+
+/* Nav collapse: comfortable tap targets on mobile */
+@media (max-width: 991.98px) {
+  .navbar-nav .nav-item {
+    padding: 0.5rem 0;
+    text-align: center;
+  }
+  .navbar-collapse {
+    background-color: #000000;
+    border-top: 1px solid #3a3106;
+    margin-top: 0.5rem;
+  }
+}
+
+/* Resume download button + heading: stop them from overlapping on small screens */
+@media (max-width: 575.98px) {
+  .d-flex.align-items-center.justify-content-between.mb-4 {
+    flex-direction: column;
+    align-items: flex-start !important;
+    gap: 0.75rem;
+  }
+  .d-flex.align-items-center.justify-content-between.mb-4 .btn {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+}
+
+/* Contact form: full-width inputs already work via Bootstrap, just tighten padding */
+@media (max-width: 575.98px) {
+  .bg-light.rounded-4.py-5.px-4.px-md-5 {
+    padding: 2rem 1rem !important;
+  }
+}
